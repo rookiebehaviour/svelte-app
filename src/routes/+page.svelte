@@ -7,24 +7,20 @@
 	let b = 2;
   let name = "";
 
+
 </script>
 
 <form>
   <input placeholder="Enter your name" type="string" bind:value={name}>
-  <button>Save</button>
 <input type="number" bind:value={a}>
 <input type="number" bind:value={b}>
 </form>
 
-<p>{a} + {b} = {a + b} 
-  <br/>
-<br/>
-  Hello {name}</p>
+<p>{name} the sum is {a + b}</p>
 
 <style>
 	:global(body) {
-		/* this will apply to <body> */
-      padding: 20px 30px;
+		padding: 20px 30px;
 		margin: 0;
     background: #dddddd;
     color: #870000;
@@ -33,23 +29,24 @@
 
   input {
     padding: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
     border-radius: 8px;
-    border: 2px solid #870000;
+    border: 1px solid #870000;
   }
 
-  button {
+  :global(button) {
     padding:10px 15px;
+    margin: 0 5px 0 0;
     border-radius: 8px;
     background: #fff;
-    border: none;
-    box-shadow: 2px 2px 3px black;
+    border: 1px solid #870000;
+    box-shadow: 2px 2px 3px #000;
   }
 
-  button:hover {
+  :global(button:hover) {
     background: #870000;
     color: #fff;
-    
+    cursor: pointer;
   }
 	
 </style>

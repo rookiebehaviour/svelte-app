@@ -3,11 +3,39 @@
 <h3>I'm still learning Svelte so this is my playground 👩🏽‍💻</h3>
 
 <script>
+
 	let a = 1;
 	let b = 2;
   let name = "";
 
+  function handleClick(event) {
+  event.preventDefault()
+    whatIsToday()
+  }
 
+let sentence = "";
+
+let day = new Date();
+
+function whatIsToday() {
+
+  let dayFormat = new Intl.DateTimeFormat(undefined, {
+  dateStyle: "full",
+  timeStyle: "short"
+  
+});
+
+let timeOfDay = new Intl.DateTimeFormat(undefined, {
+    dayPeriod: "long"
+})
+
+let today = dayFormat.format(day);
+timeOfDay = timeOfDay.format(day)
+
+sentence = `Today's date is: ${today} ${timeOfDay}`
+  return sentence
+  
+}
 </script>
 
 <form>
@@ -17,6 +45,10 @@
 </form>
 
 <p>{name} the sum is {a + b}</p>
+<br/>
+
+<button on:click={handleClick}>Show date & time</button>
+<p>{sentence}</p>
 
 <style>
 	:global(body) {
